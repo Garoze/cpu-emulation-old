@@ -6,7 +6,6 @@
 #include "include/Memory/Memory.hpp"
 
 #define isValidRange(n) (n > 0 && n < data.size())
-#define checkValidRange(n) assert(n > 0 && n < data.size())
 
 Memory::Memory()
 {
@@ -41,8 +40,29 @@ void Memory::writeWord(std::uint16_t address, std::uint8_t value)
         data.at(address) = value;
 }
 
-void Memory::debugMemory(uint16_t address)
+void Memory::viewAt(std::uint16_t& address)
 {
     if (isValidRange(address))
-        printf("[ DEBUG ]: Memory at 0x%04X -> 0x%04X\n", address, data[address]);
+    {
+        printf("0x%04X: ", address);
+        for (int i = 1; i <= 10; ++i)
+        {
+            printf("%02X ", data[address++]);
+        }
+        printf("\n");
+    }
+}
+
+void Memory::debugMemory(std::size_t start, std::size_t end)
+{
+    if (isValidRange(start + end))
+    {
+        std::uint16_t current = start;
+
+        printf("[ Memory Debug ] -> 0x%04lX\n", start);
+        while (current <= end)
+        {
+            viewAt(current);
+        }
+    }
 }

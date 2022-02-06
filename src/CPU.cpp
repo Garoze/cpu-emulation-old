@@ -29,9 +29,9 @@ void CPU::loadToMemory(const std::vector<std::uint16_t>& v)
     }
 }
 
-void CPU::DebugMemory(std::uint16_t address)
+void CPU::debugMemory(std::size_t start, std::size_t end)
 {
-    memory.debugMemory(address);
+    memory.debugMemory(start, end);
 }
 
 void CPU::run()

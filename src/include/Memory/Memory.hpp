@@ -16,8 +16,11 @@ public:
     void writeByte(std::uint16_t address, std::uint8_t value);
     void writeWord(std::uint16_t address, std::uint8_t value);
 
-    void debugMemory(uint16_t address);
+    // void viewAt(std::uint16_t  address);
+    void viewAt(std::uint16_t& address);
+    void debugMemory(std::size_t start, std::size_t end);
 
+protected:
     std::uint16_t& operator[](std::size_t i)
     {
         return data[i];

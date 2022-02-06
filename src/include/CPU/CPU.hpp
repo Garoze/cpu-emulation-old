@@ -18,7 +18,7 @@ public:
     void loadToMemory(const std::vector<std::uint16_t>&);
     void debugRegisterA();
 public:
-    void DebugMemory(std::uint16_t address);
+    void debugMemory(std::size_t start, std::size_t end);
 private:
     void fetch();
     void decode();
