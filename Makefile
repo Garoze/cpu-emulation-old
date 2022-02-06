@@ -7,7 +7,7 @@ SRC    := src
 BIN    := bin
 BUILD  := build
 
-SOURCE := $(shell find $(SRC) -type f -regex ".*\.cpp")
+SOURCE := $(shell find $(SRC/**) -type f -regex ".*\.cpp")
 OBJECT := $(patsubst %, $(BUILD)/%, $(notdir $(SOURCE:.cpp=.cpp.o)))
 
 .PHONY: all clean
