@@ -3,6 +3,7 @@
 
 ## Instructions Table
 
+```
 NOP (0x00) - Does nothing
 CLC (0x01) - Clear the Carry flag on Registers.
 SLC (0x02) - Sets the Carry flag on Registers, its consumes a byte.
@@ -30,4 +31,4 @@ SUB (0x20) - Calls a Subrotine and push the address to the stack.
 RET (0x21) - Returne from a subrotine
 
 HLT (0x22) - Stops the CPU.
-
+```
