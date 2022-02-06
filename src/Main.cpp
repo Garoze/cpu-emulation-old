@@ -17,6 +17,7 @@ int main()
     };
     cpu.loadToMemory(code);
     cpu.run();
+    cpu.debugRegisterA();
 
     return 0;
 }

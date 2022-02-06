@@ -16,6 +16,7 @@ public:
 
     void run();
     void loadToMemory(const std::vector<std::uint16_t>&);
+    void debugRegisterA();
 public:
     void DebugMemory(std::uint16_t address);
 private:

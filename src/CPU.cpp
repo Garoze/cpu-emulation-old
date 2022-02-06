@@ -4,13 +4,16 @@
 #include "include/CPU/CPU.hpp"
 #include "include/CPU/Flags.hpp"
 
+#define STACK_START   0x00FF
+#define PROGRAM_START 0x0100
+
 CPU::CPU()
 {
     registers.A = 0;
     registers.B = 0;
     flags.running = true;
-    registers.PC = 0x0100;
-    registers.SP = 0x00FF;
+    registers.SP = STACK_START;
+    registers.PC = PROGRAM_START;
 
     opcode_t[Instructions::NOP] = &CPU::NOP;
     opcode_t[Instructions::PSH] = &CPU::PSH;
@@ -43,7 +46,6 @@ void CPU::run()
 
 void CPU::fetch()
 {
-    memory.debugMemory(registers.PC);
     opcode = memory.readWord(registers.PC++);
 }
 
@@ -67,10 +69,16 @@ void CPU::PSH()
 
 void CPU::POP()
 {
-    registers.A = memory.readByte(--registers.SP);
+    registers.A = memory.readWord(++registers.SP);
 }
 
 void CPU::HLT()
 {
     flags.running = false;
 }
+
+void CPU::debugRegisterA()
+{
+    printf("[ DEBUG ] Register(A): %d\n", registers.A);
+}
+
