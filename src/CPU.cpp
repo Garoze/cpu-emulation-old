@@ -46,7 +46,8 @@ void CPU::run()
 
 void CPU::fetch()
 {
-    opcode = memory.readWord(registers.PC++);
+    // opcode = memory.readWord(registers.PC++);
+    opcode = memory.readByte(registers.PC++);
 }
 
 void CPU::decode()
@@ -75,10 +76,5 @@ void CPU::POP()
 void CPU::HLT()
 {
     flags.running = false;
-}
-
-void CPU::debugRegisterA()
-{
-    printf("[ DEBUG ] Register(A): %d\n", registers.A);
 }
 

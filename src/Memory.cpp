@@ -34,7 +34,7 @@ void Memory::writeByte(std::uint16_t address, std::uint8_t value)
         data.at(address) = value;
 }
 
-void Memory::writeWord(std::uint16_t address, std::uint8_t value)
+void Memory::writeWord(std::uint16_t address, std::uint16_t value)
 {
     if (isValidRange(address))
         data.at(address) = value;

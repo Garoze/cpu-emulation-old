@@ -8,4 +8,3 @@ for folder in $(echo $CHECK_FOLDERS | sed "s/,/ /g"); do
     fi
 done
 
-make

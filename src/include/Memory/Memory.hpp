@@ -13,8 +13,8 @@ public:
     std::uint8_t  readByte(std::uint16_t address);
     std::uint16_t readWord(std::uint16_t address);
 
-    void writeByte(std::uint16_t address, std::uint8_t value);
-    void writeWord(std::uint16_t address, std::uint8_t value);
+    void writeByte(std::uint16_t address, std::uint8_t  value);
+    void writeWord(std::uint16_t address, std::uint16_t value);
 
     // void viewAt(std::uint16_t  address);
     void viewAt(std::uint16_t& address);
