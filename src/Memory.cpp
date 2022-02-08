@@ -22,8 +22,9 @@ std::uint8_t Memory::readByte(std::uint16_t address)
 
 std::uint16_t Memory::readWord(std::uint16_t address)
 {
+
     if (isValidRange(address))
-        return data.at(address);
+        return data.at(address + 1) << 8 | data.at(address);
     else
         return 0;
 }
@@ -37,7 +38,10 @@ void Memory::writeByte(std::uint16_t address, std::uint8_t value)
 void Memory::writeWord(std::uint16_t address, std::uint16_t value)
 {
     if (isValidRange(address))
-        data.at(address) = value;
+    {
+        data.at(address + 0) = value & 0x00FF;
+        data.at(address + 1) = (value & 0xFF00) >> 8;
+    }
 }
 
 void Memory::viewAt(std::uint16_t& address)

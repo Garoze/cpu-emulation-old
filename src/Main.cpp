@@ -10,12 +10,13 @@ int main()
     CPU cpu;
 
     const std::vector<std::uint16_t> code = {
-        (int)i::PSH, 5,
+        (int)i::PSH, 0xABCD,
         (int)i::POP,
         (int)i::HTL,
     };
     cpu.loadToMemory(code);
-    cpu.run();
+    cpu.step();
+    // cpu.run();
     cpu.debugMemory(0x0100, 0x0120);
 
     return 0;
