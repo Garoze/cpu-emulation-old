@@ -4,8 +4,8 @@
 #include "include/CPU/CPU.hpp"
 #include "include/CPU/Flags.hpp"
 
-#define STACK_START   0x00FF
-#define PROGRAM_START 0x0100
+#define STACK_START   0x0040
+#define PROGRAM_START 0x0050
 
 #define isValidOpcode(o) (opcode_t.count((Instructions)o) > 0)
 
@@ -86,23 +86,20 @@ void CPU::NOP() {}
 void CPU::PSH()
 {
     auto value = memory.readWord(registers.PC);
-    printf("PUSH %04X\n", value);
-    memory.writeWord(registers.SP--, value);
+    registers.SP -= 2;
+    memory.writeWord(registers.SP, value);
     registers.PC += 2;
 }
 
 void CPU::POP()
 {
-    auto value = memory.readWord(++registers.SP);
-    printf("POP %04X\n", value);
-    // printf("POP: %02X\n", value);
-    // auto value = memory.readWord(++registers.SP);
-    // registers.A = value;
+    auto value = memory.readWord(registers.SP);
+    printf("SP: %02lX Value: %04X\n", registers.SP, value);
+    registers.SP += 2;
 }
 
 void CPU::HLT()
 {
-    printf("HALT Instruction\n");
     flags.running = false;
 }
 

@@ -16,7 +16,6 @@ public:
     void writeByte(std::uint16_t address, std::uint8_t  value);
     void writeWord(std::uint16_t address, std::uint16_t value);
 
-    // void viewAt(std::uint16_t  address);
     void viewAt(std::uint16_t& address);
     void debugMemory(std::size_t start, std::size_t end);
 

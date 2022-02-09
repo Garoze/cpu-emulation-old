@@ -5,7 +5,7 @@
 
 #include "include/Memory/Memory.hpp"
 
-#define isValidRange(n) (n > 0 && n < data.size())
+#define isValidRange(n) (n >= 0 && n < data.size())
 
 Memory::Memory()
 {
@@ -22,7 +22,6 @@ std::uint8_t Memory::readByte(std::uint16_t address)
 
 std::uint16_t Memory::readWord(std::uint16_t address)
 {
-
     if (isValidRange(address))
         return data.at(address + 1) << 8 | data.at(address);
     else
@@ -63,6 +62,7 @@ void Memory::debugMemory(std::size_t start, std::size_t end)
     {
         std::uint16_t current = start;
 
+        printf("\n");
         printf("[ Memory Debug ] -> 0x%04lX\n", start);
         while (current <= end)
         {
@@ -70,3 +70,4 @@ void Memory::debugMemory(std::size_t start, std::size_t end)
         }
     }
 }
+
