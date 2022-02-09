@@ -22,10 +22,10 @@ int main()
     */
 
     const std::vector<std::uint16_t> code = {
-        (int)i::LDI, 5,
-        // (int)i::RET,
-        // (int)i::INC,
-        // (int)i::RET,
+        (int)i::LDI, 99,
+        (int)i::RET,
+        (int)i::INC,
+        (int)i::RET,
         // (int)i::PSH, 0xABCD,
         // (int)i::LDS,
         // (int)i::RET,
