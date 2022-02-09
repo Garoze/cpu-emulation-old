@@ -63,7 +63,7 @@ void Memory::debugMemory(std::size_t start, std::size_t end)
         std::uint16_t current = start;
 
         printf("\n");
-        printf("[ Memory Debug ] -> 0x%04lX\n", start);
+        printf("[ Memory ] -> %04lX\n", start);
         while (current <= end)
         {
             viewAt(current);

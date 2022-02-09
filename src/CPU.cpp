@@ -7,7 +7,7 @@
 #define STACK_START   0x0040
 #define PROGRAM_START 0x0050
 
-#define isValidOpcode(o) (opcode_t.count((Instructions)o) > 0)
+#define isValidOpcode(i) (opcode_t.count((Instructions)i) > 0)
 
 CPU::CPU()
 {
@@ -55,10 +55,10 @@ void CPU::step()
 {
     do
     {
-        printf("[ DEBUG (step) -> PC: %02lX ]\n", registers.PC);
         fetch();
         decode();
         execute();
+        printf("[ DEBUG ] Step -> PC: %02lX Opcode: %02hX\t", registers.PC, instruction);
     }
     while(std::cin.get() != 'q');
 }
@@ -94,7 +94,7 @@ void CPU::PSH()
 void CPU::POP()
 {
     auto value = memory.readWord(registers.SP);
-    printf("SP: %02lX Value: %04X\n", registers.SP, value);
+    registers.A = value;
     registers.SP += 2;
 }
 

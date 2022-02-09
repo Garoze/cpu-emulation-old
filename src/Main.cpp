@@ -17,8 +17,8 @@ int main()
         (int)i::HTL,
     };
     cpu.loadToMemory(code);
-    // cpu.step();
-    cpu.run();
+    cpu.step();
+    // cpu.run();
     cpu.debugMemory(0x0050, 0x0070);
     cpu.debugMemory(0x0030, 0x0040);
 
