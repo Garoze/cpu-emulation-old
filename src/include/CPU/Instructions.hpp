@@ -6,8 +6,8 @@ enum class Instructions : std::uint16_t
 {
     NOP,
     CLC, SLC,
-    AND, BOR, XOR, NOT,
     SHL, SHR,
+    AND, BOR, XOR, NOT,
     LDI, LDA, LDR, LDS,
     STA, STR, STS,
     INC, DEC,

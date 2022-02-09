@@ -25,6 +25,23 @@ private:
     void execute();
 private:
     void NOP();
+    void SHL();
+    void SHR();
+    void AND();
+    void BOR();
+    void XOR();
+    void NOT();
+    void LDI();
+    void LDA();
+    void LDR();
+    void LDS();
+    // void STA();
+    // void STR();
+    // void STS();
+    // void SUB();
+    void INC();
+    void DEC();
+    void RET();
     void PSH();
     void POP();
     void HLT();
